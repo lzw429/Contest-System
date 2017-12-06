@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans-CN">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <title>个人中心 - 大学生数学建模挑战赛</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
 
+<body>
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+        <img src="img/neu_badge.png" width="65" height="65">
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">大赛详情</a></li>
+            <li><a href="#">组织机构</a></li>
+            <li><a href="#">大赛奖项</a></li>
+            <li><a href="#">报名方式</a></li>
+            <li><a href="#">通知公告</a></li>
+            <li><a href="#">获奖公示</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">大赛详情</a></li>
+            <li><a href="#">组织机构</a></li>
+            <li><a href="#">大赛奖项</a></li>
+            <li><a href="#">报名方式</a></li>
+            <li><a href="#">通知公告</a></li>
+            <li><a href="#">获奖公示</a></li>
+            <li><a href="#">联系我们</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<!-- Page Layout here -->
+<div class="row">
+
+    <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
+        <!-- Grey navigation panel
+
+              This content will be:
+          3-columns-wide on large screens,
+          4-columns-wide on medium screens,
+          12-columns-wide on small screens  -->
+        <div class="collection" style="border: 0;">
+            <a href="#!" class="collection-item orange-text" style="border: 0;" onclick="new Vue">个人信息</a>
+            <a href="#!" class="collection-item orange-text" style="border: 0;">我的队伍</a>
+            <a href="#!" class="collection-item orange-text" style="border: 0;">题目下载</a>
+            <a href="#!" class="collection-item orange-text" style="border: 0;">论文提交</a>
+            <a href="#!" class="collection-item orange-text" style="border: 0;">返回首页</a>
+        </div>
+    </div>
+
+    <div class=" col s12 m8 l9" id="page_content"> <!-- Note that "m8 l9" was added -->
+        <!-- Teal page content
+
+              This content will be:
+          9-columns-wide on large screens,
+          8-columns-wide on medium screens,
+          12-columns-wide on small screens  -->
+        {{content}}
+    </div>
+
+</div>
+
+<!--Vue Script-->
+<script>
+    <!--条件渲染-->
+    var changeContent = new Vue(
+        {
+            el: '#page_content',
+            data: {
+                content: ''
+            }
+        }
+    )
+</script>
+
+<footer class="page-footer orange" style="padding: 0;">
+    <div class="footer-copyright orange">
+        <div class="container">
+            大学生数学建模挑战赛组委会&nbsp;&nbsp;@2017 All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script src="js/vue.js"></script>
 </body>
 </html>
