@@ -18,36 +18,34 @@
 </head>
 
 <body>
-<nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-        <img src="img/neu_badge.png" width="65" height="65">
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">大赛详情</a></li>
-            <li><a href="#">组织机构</a></li>
-            <li><a href="#">大赛奖项</a></li>
-            <li><a href="#">报名方式</a></li>
-            <li><a href="#">通知公告</a></li>
-            <li><a href="#">获奖公示</a></li>
-            <li><a href="#">联系我们</a></li>
-        </ul>
-        <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">首页</a></li>
-            <li><a href="#">大赛详情</a></li>
-            <li><a href="#">组织机构</a></li>
-            <li><a href="#">大赛奖项</a></li>
-            <li><a href="#">报名方式</a></li>
-            <li><a href="#">通知公告</a></li>
-            <li><a href="#">获奖公示</a></li>
-            <li><a href="#">联系我们</a></li>
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
+<nav class="light-blue lighten-1" role="navigation" style="padding: 0 38px">
+    <img src="img/neu_badge.png" width="65" height="65">
+    <ul class="right hide-on-med-and-down">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">大赛详情</a></li>
+        <li><a href="#">组织机构</a></li>
+        <li><a href="#">大赛奖项</a></li>
+        <li><a href="#">报名方式</a></li>
+        <li><a href="#">通知公告</a></li>
+        <li><a href="#">获奖公示</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+    <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">大赛详情</a></li>
+        <li><a href="#">组织机构</a></li>
+        <li><a href="#">大赛奖项</a></li>
+        <li><a href="#">报名方式</a></li>
+        <li><a href="#">通知公告</a></li>
+        <li><a href="#">获奖公示</a></li>
+        <li><a href="#">联系我们</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 </nav>
 
 <div class="row" id="page_layout">
-    <div class="col s12 m4 l3" id="page_nav">
-        <div class="collection" style="border: 0;">
+    <div class="col s12 m4 l3" id="page_nav" style="padding: 20px">
+        <div class="collection" style="border: 0; padding-bottom: 100%">
             <router-link to="/personInfo" class="collection-item orange-text" style="border: 0;">个人信息</router-link>
             <router-link to="/myTeam" class="collection-item orange-text" style="border: 0;">我的队伍</router-link>
             <router-link to="/problem" class="collection-item orange-text" style="border: 0;">题目下载</router-link>
@@ -56,8 +54,8 @@
         </div>
     </div>
 
-    <div class="col s12 m8 l9" id="page_content">
-        <router-view></router-view>
+    <div class="col s12 m8 l9" id="page_content" style="padding: 10px 11.25px;">
+        <router-view style="padding-bottom: 10px"></router-view>
     </div>
 </div>
 
@@ -69,34 +67,41 @@
     // 可以从其他文件 import 进来
     const personInfo = {
         template:
-        '<div>  ' +
-        '<div class="input-field col s12">\n' +
+        '<div> ' +
+        '<table> ' +
+        '<tbody>' +
+        '<tr><div class="input-field col s6">\n' +
         '          <input id="name" type="text" class="validate">\n' +
-        '          <label for="name">姓名</label>\n' +
+        '          <label for="name" class="orange-text">姓名</label>\n' +
+        '        </div></tr>' +
+        '  <tr><div class="input-field col s6" >\n' +
+        '          <input id="school" type="text" class="validate">\n' +
+        '          <label for="school" class="orange-text">所在学校</label>\n' +
+        '        </div></tr>' +
+        ' <tr><div class="input-field col s6">\n' +
+        '          <input id="tel" type="text" class="validate">\n' +
+        '          <label for="tel" class="orange-text">手机号码</label></div></tr>\n' +
+        '  <tr><div class="input-field col s6">\n' +
+        '          <input id="grade&major" type="text" class="validate">\n' +
+        '          <label for="grade&major" class="orange-text">年级专业</label>\n' +
         '        </div>' +
-        '  <div class="input-field col s12">\n' +
+        '       </tr>' +
+        '  <tr><div class="input-field col s9">\n' +
         '          <input id="email" type="email" class="validate">\n' +
-        '          <label for="email">Email</label>\n' +
-        '        </div>' +
-        '  <div class="input-field col s12">\n' +
-        '          <input id="email" type="email" class="validate">\n' +
-        '          <label for="email">Email</label>\n' +
-        '        </div>' +
-        '  <div class="input-field col s12">\n' +
-        '          <input id="email" type="email" class="validate">\n' +
-        '          <label for="email">Email</label>\n' +
-        '        </div>' +
-        '  <div class="input-field col s12">\n' +
-        '          <input id="email" type="email" class="validate">\n' +
-        '          <label for="email">Email</label>\n' +
-        '        </div>' +
-        '  <div class="input-field col s12">\n' +
-        '          <input id="email" type="email" class="validate">\n' +
-        '          <label for="email">Email</label>\n' +
-        '        </div>' +
+        '          <label for="email" class="orange-text">电子邮箱</label>\n' +
+        '        </div></tr>' +
+        '  <tr><div class="input-field col s9">\n' +
+        '          <input id="address" type="text" class="validate">\n' +
+        '          <label for="address" class="orange-text">邮寄地址</label>\n' +
+        '        </div></tr>' +
+        '   <tr><div><a class="btn waves-effect waves-light orange" style="margin: 10px">确定</a></div>' +
+        '</tr></tbody></table>' +
         '</div>'
     };
     const myTeam = {template: '<div>myTeam</div>'};
+    const problem = {template: '<div>problem</div>'};
+    const submit = {template: '<div>submit</div>'};
+
 
     // 2. 定义路由
     // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -106,6 +111,8 @@
     const routes = [
         {path: '/personInfo', component: personInfo},
         {path: '/myTeam', component: myTeam},
+        {path: '/problem', component: problem},
+        {path: '/submit', component: submit},
         {path: '/', component: personInfo}//默认路由
     ];
 
@@ -125,10 +132,8 @@
 </script>
 
 <footer class="page-footer orange" style="padding: 0;">
-    <div class="footer-copyright orange">
-        <div class="container">
-            大学生数学建模挑战赛组委会&nbsp;&nbsp;@2017 All Rights Reserved
-        </div>
+    <div class="footer-copyright orange" style="padding: 0 38px">
+        大学生数学建模挑战赛组委会&nbsp;&nbsp;@2017 All Rights Reserved
     </div>
 </footer>
 </body>
