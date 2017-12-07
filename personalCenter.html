@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <!--  Scripts-->
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/materialize.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
 </head>
 
 <body>
@@ -41,29 +48,80 @@
 <div class="row" id="page_layout">
     <div class="col s12 m4 l3" id="page_nav">
         <div class="collection" style="border: 0;">
-            <a href="#!" class="collection-item orange-text" style="border: 0;" v-on:click="page=1;">个人信息</a>
-            <a href="#!" class="collection-item orange-text" style="border: 0;" v-on:click="page=2;">我的队伍</a>
-            <a href="#!" class="collection-item orange-text" style="border: 0;">题目下载</a>
-            <a href="#!" class="collection-item orange-text" style="border: 0;">论文提交</a>
-            <a href="#!" class="collection-item orange-text" style="border: 0;">返回首页</a>
+            <router-link to="/personInfo" class="collection-item orange-text" style="border: 0;">个人信息</router-link>
+            <router-link to="/myTeam" class="collection-item orange-text" style="border: 0;">我的队伍</router-link>
+            <router-link to="/problem" class="collection-item orange-text" style="border: 0;">题目下载</router-link>
+            <router-link to="/submit" class="collection-item orange-text" style="border: 0;">论文提交</router-link>
+            <router-link to="/index" class="collection-item orange-text" style="border: 0;">返回首页</router-link>
         </div>
     </div>
+
     <div class="col s12 m8 l9" id="page_content">
-        <template v-if="page==1">这是页面1</template>
-        <template v-else-if="page==2">这是页面2</template>
+        <router-view></router-view>
     </div>
 </div>
 
-<!--Vue Script-->
+<!--Vue-->
 <script>
-    var changeContent = new Vue(
-        {
-            el: '#page_layout',
-            data: {
-                page: 0
-            }
-        }
-    )
+    // 0. 如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
+
+    // 1. 定义（路由）组件。
+    // 可以从其他文件 import 进来
+    const personInfo = {
+        template:
+        '<div>  ' +
+        '<div class="input-field col s12">\n' +
+        '          <input id="name" type="text" class="validate">\n' +
+        '          <label for="name">姓名</label>\n' +
+        '        </div>' +
+        '  <div class="input-field col s12">\n' +
+        '          <input id="email" type="email" class="validate">\n' +
+        '          <label for="email">Email</label>\n' +
+        '        </div>' +
+        '  <div class="input-field col s12">\n' +
+        '          <input id="email" type="email" class="validate">\n' +
+        '          <label for="email">Email</label>\n' +
+        '        </div>' +
+        '  <div class="input-field col s12">\n' +
+        '          <input id="email" type="email" class="validate">\n' +
+        '          <label for="email">Email</label>\n' +
+        '        </div>' +
+        '  <div class="input-field col s12">\n' +
+        '          <input id="email" type="email" class="validate">\n' +
+        '          <label for="email">Email</label>\n' +
+        '        </div>' +
+        '  <div class="input-field col s12">\n' +
+        '          <input id="email" type="email" class="validate">\n' +
+        '          <label for="email">Email</label>\n' +
+        '        </div>' +
+        '</div>'
+    };
+    const myTeam = {template: '<div>myTeam</div>'};
+
+    // 2. 定义路由
+    // 每个路由应该映射一个组件。 其中"component" 可以是
+    // 通过 Vue.extend() 创建的组件构造器，
+    // 或者，只是一个组件配置对象。
+    // 我们晚点再讨论嵌套路由。
+    const routes = [
+        {path: '/personInfo', component: personInfo},
+        {path: '/myTeam', component: myTeam},
+        {path: '/', component: personInfo}//默认路由
+    ];
+
+    // 3. 创建 router 实例，然后传 `routes` 配置
+    // 你还可以传别的配置参数, 不过先这么简单着吧。
+    const router = new VueRouter({
+        routes // （缩写）相当于 routes: routes
+    });
+
+    // 4. 创建和挂载根实例。
+    // 记得要通过 router 配置参数注入路由，
+    // 从而让整个应用都有路由功能
+    const page_layout = new Vue({
+        router
+    }).$mount('#page_layout')
+
 </script>
 
 <footer class="page-footer orange" style="padding: 0;">
@@ -73,11 +131,5 @@
         </div>
     </div>
 </footer>
-
-<!--  Scripts-->
-<script src="js/jquery-3.2.1.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
-<script src="js/vue.js"></script>
 </body>
 </html>
