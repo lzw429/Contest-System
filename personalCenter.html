@@ -38,45 +38,29 @@
     </div>
 </nav>
 
-<!-- Page Layout here -->
-<div class="row">
-
-    <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
-        <!-- Grey navigation panel
-
-              This content will be:
-          3-columns-wide on large screens,
-          4-columns-wide on medium screens,
-          12-columns-wide on small screens  -->
+<div class="row" id="page_layout">
+    <div class="col s12 m4 l3" id="page_nav">
         <div class="collection" style="border: 0;">
-            <a href="#!" class="collection-item orange-text" style="border: 0;" onclick="new Vue">个人信息</a>
-            <a href="#!" class="collection-item orange-text" style="border: 0;">我的队伍</a>
+            <a href="#!" class="collection-item orange-text" style="border: 0;" v-on:click="page=1;">个人信息</a>
+            <a href="#!" class="collection-item orange-text" style="border: 0;" v-on:click="page=2;">我的队伍</a>
             <a href="#!" class="collection-item orange-text" style="border: 0;">题目下载</a>
             <a href="#!" class="collection-item orange-text" style="border: 0;">论文提交</a>
             <a href="#!" class="collection-item orange-text" style="border: 0;">返回首页</a>
         </div>
     </div>
-
-    <div class=" col s12 m8 l9" id="page_content"> <!-- Note that "m8 l9" was added -->
-        <!-- Teal page content
-
-              This content will be:
-          9-columns-wide on large screens,
-          8-columns-wide on medium screens,
-          12-columns-wide on small screens  -->
-        {{content}}
+    <div class="col s12 m8 l9" id="page_content">
+        <template v-if="page==1">这是页面1</template>
+        <template v-else-if="page==2">这是页面2</template>
     </div>
-
 </div>
 
 <!--Vue Script-->
 <script>
-    <!--条件渲染-->
     var changeContent = new Vue(
         {
-            el: '#page_content',
+            el: '#page_layout',
             data: {
-                content: ''
+                page: 0
             }
         }
     )
