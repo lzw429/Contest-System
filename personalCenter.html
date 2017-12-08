@@ -50,7 +50,8 @@
             <router-link to="/myTeam" class="collection-item orange-text" style="border: 0;">我的队伍</router-link>
             <router-link to="/problem" class="collection-item orange-text" style="border: 0;">题目下载</router-link>
             <router-link to="/submit" class="collection-item orange-text" style="border: 0;">论文提交</router-link>
-            <router-link to="/index" class="collection-item orange-text" style="border: 0;">返回首页</router-link>
+            <router-link to="/prize" class="collection-item orange-text" style="border: 0;">获奖公示</router-link>
+            <a href="index.html" class="collection-item orange-text" style="border: 0;">返回首页</a>
         </div>
     </div>
 
@@ -94,14 +95,14 @@
         '          <input id="address" type="text" class="validate">\n' +
         '          <label for="address" class="orange-text">邮寄地址</label>\n' +
         '        </div></tr>' +
-        '   <tr><div><a class="btn waves-effect waves-light orange" style="margin: 10px">确定</a></div>' +
+        '   <tr><a class="btn waves-effect waves-light orange" style="margin: 10px" onclick="Materialize.Toast.removeAll();Materialize.toast(\'提交成功\',4000,\'rounded\');">确定</a>' +
         '</tr></tbody></table>' +
         '</div>'
     };
     const myTeam = {template: '<div>myTeam</div>'};
     const problem = {template: '<div>problem</div>'};
     const submit = {template: '<div>submit</div>'};
-
+    const prize = {template: '<div>prize</div>'};
 
     // 2. 定义路由
     // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -113,6 +114,7 @@
         {path: '/myTeam', component: myTeam},
         {path: '/problem', component: problem},
         {path: '/submit', component: submit},
+        {path: '/prize', component: prize},
         {path: '/', component: personInfo}//默认路由
     ];
 
