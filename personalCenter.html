@@ -21,8 +21,8 @@
 <nav class="light-blue lighten-1" role="navigation" style="padding: 0 38px">
     <img src="img/neu_badge.png" width="65" height="65">
     <ul class="right hide-on-med-and-down">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">大赛详情</a></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="details.html">大赛详情</a></li>
         <li><a href="#">组织机构</a></li>
         <li><a href="#">大赛奖项</a></li>
         <li><a href="#">报名方式</a></li>
@@ -31,8 +31,8 @@
         <li><a href="#">联系我们</a></li>
     </ul>
     <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">大赛详情</a></li>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="details.html">大赛详情</a></li>
         <li><a href="#">组织机构</a></li>
         <li><a href="#">大赛奖项</a></li>
         <li><a href="#">报名方式</a></li>
@@ -104,21 +104,74 @@
         template: '<div>' +
         '  <div class="section">\n' +
         '    <h5>报名状态</h5>\n' +
-        '    <p>Stuff</p>\n' +
+        '<button class="btn orange" id="pay_btn" onclick="document.getElementById(\'registration_status\').innerHTML=\'支付成功，报名完成\';document.getElementById(\'pay_btn\').remove();">支付</button>' +
+        '    <span id="registration_status">支付报名费后报名完成。</span>\n' +
         '  </div>\n' +
         '  <div class="section">\n' +
         '    <h5>队伍信息</h5>\n' +
-        '    <p>Stuff</p>\n' +
+        '    <table>' +
+        '<thead>' +
+        '<tr><th>队伍编号</th><th>组别</th><th>队伍名称</th><th>指导老师</th></tr>' +
+        '</thead>' +
+        '<tbody><tr><td>03224</td><td>本科组</td><td>队伍1</td></tr></tbody>' +
+        '</table>\n' +
         '  </div>\n' +
         '  <div class="section">\n' +
         '    <h5>队伍成员</h5>\n' +
-        '    <p>Stuff</p>\n' +
+        '<table> ' +
+        '<thead>' +
+        '<tr><th>姓名</th><th>学校</th><th>电子邮箱</th></tr>' +
+        '</thead>' +
+        '<tbody><tr><td id="stu_name1">学生1</td><td>东北大学</td><td>20165248@stu.neu.edu.cn</td></tr></tbody>' +
+        '</table>\n' +
         '  </div>\n' +
         '          </div>'
     };
-    const problem = {template: '<div>problem</div>'};
-    const submit = {template: '<div>submit</div>'};
-    const prize = {template: '<div>prize</div>'};
+    const problem = {
+        template: '<div>' +
+        '<div class="section">' +
+        '   <a class="btn orange">B题题目</a>' +
+        '   <a class="btn orange">C题题目</a>' +
+        '      </div>' +
+        '</div>'
+    };
+    const submit = {
+        template: '<div>  ' +
+        '<div class="section">' +
+        '<h5>选择题目</h5>' +
+        '  <form action="#">\n' +
+        '      <input name="problem_choice" type="radio" id="choice1"/>\n' +
+        '      <label for="choice1" class="orange-text">B题</label>\n' +
+        '      <input name="problem_choice" type="radio" id="choice2" style="margin-left: 100px"/>\n' +
+        '      <label for="choice2" class="orange-text" style="margin-left: 50px">C题</label>\n' +
+        '  </form>' +
+        '</div>' +
+        '<form action="#">\n' +
+        '    <div class="file-field input-field">\n' +
+        '      <div class="btn orange" style="padding-left: 45px; padding-right: 45px">\n' +
+        '        <span >上传论文</span>\n' +
+        '        <input type="file">\n' +
+        '      </div>\n' +
+        '      <div class="file-path-wrapper">\n' +
+        '        <input class="file-path validate" type="text" placeholder="*.doc/*.pdf 大小5MB以内">\n' +
+        '      </div>\n  ' +
+        '    </div>\n' +
+        '  </form>\n' +
+        '<form action="#">\n' +
+        '    <div class="file-field input-field">\n' +
+        '      <div class="btn orange">\n' +
+        '        <span>上传支撑材料</span>\n' +
+        '        <input type="file">\n' +
+        '      </div>\n' +
+        '      <div class="file-path-wrapper">\n' +
+        '        <input class="file-path validate" type="text" placeholder="*.zip/*.7z/*.rar 大小20MB以内">\n' +
+        '      </div>\n' +
+        '    </div>\n' +
+        '  </form>' +
+        '<div class="section"><button class="btn orange" onclick="Materialize.Toast.removeAll();Materialize.toast(\'提交成功\',\'4000\',\'rounded\');">提交</button></div>' +
+        '        </div>'
+    };
+    const prize = {template: '<div><div class="section">获奖信息将稍后公布。</div></div>'};
 
     // 2. 定义路由
     // 每个路由应该映射一个组件。 其中"component" 可以是
@@ -145,8 +198,7 @@
     // 从而让整个应用都有路由功能
     const page_layout = new Vue({
         router
-    }).$mount('#page_layout')
-
+    }).$mount('#page_layout');
 </script>
 
 <footer class="page-footer orange" style="padding: 0;">

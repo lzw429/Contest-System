@@ -99,3 +99,14 @@ textarea.materialize-textarea:focus:not([readonly]) {
     -webkit-box-shadow: 0 1px 0 0 #29b6f6;
     box-shadow: 0 1px 0 0 #29b6f6;
 }
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:before,
+[type="radio"].with-gap:checked + label:after {
+    border: 2px solid #ffa726;
+}
+
+[type="radio"]:checked + label:after,
+[type="radio"].with-gap:checked + label:after {
+    background-color: #ffa726;
+}
