@@ -66,6 +66,7 @@
 
     // 1. 定义（路由）组件。
     // 可以从其他文件 import 进来
+    // 在定义组件时，template默认的<div></div>不要删除
     const personInfo = {
         template:
         '<div> ' +
@@ -99,7 +100,22 @@
         '</tr></tbody></table>' +
         '</div>'
     };
-    const myTeam = {template: '<div>myTeam</div>'};
+    const myTeam = {
+        template: '<div>' +
+        '  <div class="section">\n' +
+        '    <h5>报名状态</h5>\n' +
+        '    <p>Stuff</p>\n' +
+        '  </div>\n' +
+        '  <div class="section">\n' +
+        '    <h5>队伍信息</h5>\n' +
+        '    <p>Stuff</p>\n' +
+        '  </div>\n' +
+        '  <div class="section">\n' +
+        '    <h5>队伍成员</h5>\n' +
+        '    <p>Stuff</p>\n' +
+        '  </div>\n' +
+        '          </div>'
+    };
     const problem = {template: '<div>problem</div>'};
     const submit = {template: '<div>submit</div>'};
     const prize = {template: '<div>prize</div>'};
